@@ -23,6 +23,10 @@ class OrderScreen extends StatelessWidget {
               itemBuilder: (BuildContext ctx, int idx) {
                 final currentOrder = orderItems[idx];
                 return ExpansionTile(
+                  leading: const Chip(
+                    label: Text('Paid', style: TextStyle(color: Colors.white)),
+                    backgroundColor: Colors.green,
+                  ),
                   title: Text('Rp. ${currentOrder.amount.toString()}'),
                   subtitle: Text(
                     DateFormat('dd/MMM/yyyy hh:mm')
