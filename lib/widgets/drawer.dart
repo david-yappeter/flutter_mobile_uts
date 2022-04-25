@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoppp/screens/order.dart';
 import 'package:shoppp/screens/settings.dart';
 import 'package:shoppp/screens/shop_list.dart';
 
@@ -24,6 +25,13 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(ShopListScreen.routeName);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.menu),
+            title: const Text('Orders'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(OrderScreen.routeName);
             },
           ),
           ListTile(

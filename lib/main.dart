@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shoppp/provider/carts.dart';
+import 'package:shoppp/provider/orders.dart';
 import 'package:shoppp/provider/theme.dart';
+import 'package:shoppp/screens/cart.dart';
+import 'package:shoppp/screens/order.dart';
 import 'package:shoppp/screens/settings.dart';
 import 'package:shoppp/screens/shop_list.dart';
 import 'package:shoppp/theme/theme.dart';
@@ -37,6 +41,12 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (BuildContext ctx) => themeChangeProvider,
         ),
+        ChangeNotifierProvider(
+          create: (BuildContext ctx) => Carts(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext ctx) => Orders(),
+        ),
       ],
       child: Consumer<DarkThemeProvider>(
         builder:
@@ -47,10 +57,11 @@ class _MyAppState extends State<MyApp> {
                 ThemeStyles.themeData(themeChangeProvider.darkTheme, context),
             initialRoute: ShopListScreen.routeName,
             routes: {
-              ShopListScreen.routeName: (BuildContext ctx) =>
-                  const ShopListScreen(),
+              ShopListScreen.routeName: (BuildContext ctx) => ShopListScreen(),
               SettingsScreen.routeName: (BuildContext ctx) =>
                   const SettingsScreen(),
+              CartScreen.routeName: (BuildContext ctx) => CartScreen(),
+              OrderScreen.routeName: (BuildContext ctx) => const OrderScreen(),
             },
           );
         },
